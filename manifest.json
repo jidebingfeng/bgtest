@@ -1,0 +1,48 @@
+{
+    "manifest_version": 2,
+
+    "name": "蓝绿测试",
+    "description": "蓝组和绿组对比测试",
+    "version": "1.0",
+    "background": {
+        "persistent": true,
+        "scripts": [
+            "lib/jquery-3.5.1.js",
+            "background.js"
+        ]
+    },
+    "permissions": [
+        "tabs",
+        "contextMenus",
+        "http://*/*",
+        "https://*/*",
+        "clipboardRead",
+        "clipboardWrite",
+        "storage",
+        "webRequest",
+        "webRequestBlocking",
+        "unlimitedStorage"
+    ],
+    "optional_permissions": ["activeTab"],
+    "content_scripts": [
+        {
+            "js": [
+                "lib/jquery-3.5.1.js",
+                "content.js"
+            ],
+            "css": [
+            ],
+            "matches": [
+                "http://*.*.com/*",
+                "https://*.*.com/*"
+            ],
+            "all_frames": false
+        }
+    ],
+    "optional_permissions": ["activeTab"],
+    "app": {
+        "launch": {
+            "local_path": "popup.html"
+        }
+    }
+}

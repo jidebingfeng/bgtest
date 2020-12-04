@@ -1,0 +1,96 @@
+<!doctype html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>蓝绿测试</title>
+    <style>
+        img {
+            width: 75px;
+            height: 75px;
+        }
+
+        .area{
+            margin: 10px;
+            padding: 5px;
+            border:1px solid black;
+        }
+
+        .row{
+            display: flex;
+        }
+
+        .row .cell{
+            overflow-wrap: anywhere;
+            width: 30%;
+
+        }
+
+        .row .cell.method{
+            width: 100px;
+
+        }
+
+        textarea{
+            width: 500px;
+            height: 50px;
+        }
+    </style>
+
+    <script src="lib/jquery-3.5.1.js"></script>
+    <script src="lib/FileSaver.js"></script>
+    <script src="util.js"></script>
+    <script src="popup.js"></script>
+</head>
+<body>
+<div>
+    <img src="icon.png">
+</div>
+
+<div class="area">
+    <div class="blue area">
+        <div>蓝组</div>
+        headers:<textarea class="headers">{}</textarea>
+        params:<textarea class="params">{}</textarea>
+    </div>
+
+    <div class="green area">
+        <div>绿组</div>
+        headers:<textarea class="headers" >{}</textarea>
+        params:<textarea class="params">{}</textarea>
+    </div>
+</div>
+
+<div class="area">
+    <div class="area">
+        过滤：<input type="text" id="filter">
+        <button type="button" id="startRecord">Start Record</button>
+        <button type="button" id="stopRecord" Stop>Stop Record</button>
+        <button type="button" id="save" Stop>Save</button>
+        <button type="button" id="replay" Stop>Replay</button>
+        <button type="button" id="download" Stop>Download</button>
+        上传：<input type="file" id="upload"  accept="application/json"/>
+
+    </div>
+    <div class="container area">
+        <div class="row title">
+            <input type="checkbox" class="all">
+            <div class="cell method">Method</div>
+            <div class="cell url">URL</div>
+            <div class="cell params">Params</div>
+            <div class="cell headers">Headers</div>
+        </div>
+
+    </div>
+</div>
+</body>
+</html>
+
+<template id="tpl">
+    <div class="row">
+        <input type="checkbox" class="item">
+        <div class="cell method"></div>
+        <div class="cell url"></div>
+        <div class="cell params"></div>
+        <div class="cell headers"></div>
+    </div>
+</template>
